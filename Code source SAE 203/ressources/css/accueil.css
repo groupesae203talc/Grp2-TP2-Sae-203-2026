@@ -1,0 +1,18 @@
+.article {
+    /* on met une petite transition fluide pour préparer l'effet de lévitation au survol */
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.article:hover {
+    /* quand on passe la souris, la carte remonte un peu et l'ombre s'agrandit pour montrer que c'est cliquable */
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+.jpo-banniere {
+    /* on fige la bannière rose avec sticky pour qu'elle descende quand on scrolle */
+    position: sticky; 
+    /* on laisse un peu d'espace de 2rem en haut de l'écran pour que ça respire */
+    top: 2rem; 
+    /* on empêche le parent flexbox d'étirer la bannière jusqu'en bas, sinon le sticky ne marche pas */
+    align-self: flex-start; 
+}
