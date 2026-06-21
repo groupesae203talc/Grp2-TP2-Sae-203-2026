@@ -1,0 +1,203 @@
+.formulaire-contact {
+    max-width: 55rem;
+    margin-bottom: 5rem;
+}
+
+.formulaire-contact .champ-conteneur {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.formulaire-contact .label-champ {
+    margin-bottom: 0.5rem;
+}
+
+.formulaire-contact .champ {
+    padding: 1rem 0.5rem;
+    border: 0.063rem solid #707070;
+    border-radius: 0.313rem;
+    font-family: inherit;
+}
+
+.formulaire-contact .liste-choix {
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+    font-size: 1.05rem;
+}
+
+.formulaire-contact .liste-choix .choix {
+    display: flex;
+    align-items: center;
+    column-gap: 0.6rem;
+    white-space: nowrap;
+}
+
+/* style personnalisé pour les boutons radio histoire de faire plus propre */
+.formulaire-contact .liste-choix input[type="radio"] {
+    --active-color: #1453ff;
+    --border-color: #999;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin: 0;
+    flex: 1 0 auto;
+    border: 0.125rem solid var(--border-color);
+    transition: 150ms border ease-in 0.15s, 0.2s background ease-in;
+    background: transparent;
+    position: relative;
+    background-color: #fff;
+}
+
+.formulaire-contact .liste-choix input[type="radio"]:hover {
+    border-color: oklch(from var(--border-color) calc(l * 0.7) c h);
+}
+
+.formulaire-contact .liste-choix input[type="radio"]:hover:checked {
+    background: oklch(from var(--active-color) calc(l * .7) c h);
+    outline-color: oklch(from var(--active-color) calc(l * .7) c h);
+}
+
+.formulaire-contact .liste-choix input[type="radio"]:checked {
+    border: 0.25rem solid #fff;
+    background-color: var(--active-color);
+    outline: 0.25rem solid var(--border-color);
+}
+
+.formulaire-contact .liste-choix input[type="radio"]:focus {
+    outline: 0.125rem solid var(--active-color);
+}
+
+.formulaire-contact .liste-choix input[type="radio"]:focus-visible::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: -0.55rem;
+    border-radius: 0.2rem;
+    border: 0.125rem solid black;
+}
+
+/* design du bouton d'envoi */
+.formulaire-contact .btn-envoi {
+    background-color: #1453ff;
+    border-color: #999 ;
+    font-size: 1.75rem;
+    padding: 0.9rem;
+    color: white;
+    border-radius: 0.313rem;
+    margin-top: 2.3rem;
+    transition: background-color 350ms;
+    border: none;
+    outline-offset: 0.2rem;
+}
+
+.formulaire-contact .btn-envoi:where(:hover, :focus) {
+    background-color: #0133bb;
+}
+
+/* on met en forme le nouveau menu déroulant du thème qu'on a rajouté */
+.formulaire-contact select.champ {
+    width: 100%;
+    background-color: #ffffff;
+    cursor: pointer;
+    padding: 1rem 0.5rem; 
+}
+
+/* petit style grisé si jamais un champ est désactivé */
+.formulaire-contact select.champ:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+}
+
+/* fin des styles du formulaire */
+
+
+
+/* style pour la petite bannière d'erreur rouge tout en haut */
+.banniere-alerte {
+    border: 0.063rem solid transparent;
+    border-radius: 0.313rem;
+    padding: 1.25rem 0;
+    text-align: center;
+    margin: 0.95rem;
+    font-size: 1.25rem;
+    transform: translateY(0);
+    transition: transform 300ms;
+    border-color: var(--base-color);
+    background-color: oklch(from var(--base-color) calc(l + 15) c h);
+    color: var(--base-color);
+}
+
+@starting-style {
+    .banniere-alerte {
+        transform: translateY(-300%);
+    }
+}
+
+.banniere-alerte.succes {
+    --base-color: #155724;
+}
+
+.banniere-alerte.erreur {
+    --base-color: #721C24;
+}
+
+
+/* le gros bloc vert de confirmation d'envoi */
+#message-confirmation {
+    text-align: center !important;
+    padding: 3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    
+    /* le fond vert clair du message de succès */
+    background-color: #d0ffd6;
+    border: 0.188rem solid #155724;
+    border-radius: 0.625rem;
+    /* la boîte s'adapte pile à la taille du texte pour faire propre */
+    width: fit-content; 
+    /* on centre bien le gros bloc au milieu de l'écran avec les marges auto */
+    margin: 6.25rem auto !important; 
+}
+
+#titre-confirmation {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    color: #155724 !important;
+    margin-bottom: 0.5rem !important;
+    /* on enlève les fonds par défaut pour que le texte soit bien net sur le vert */
+    background: none !important;
+    border: none !important;
+}
+
+#paragraphe-confirmation {
+    font-size: 1.125rem !important;
+    color: #155724 !important;
+    margin-bottom: 0 !important;
+    background: none !important;
+    border: none !important;
+}
+
+#bouton-retour-accueil {
+    /* le bouton de retour à l'accueil, placé bien en évidence en dessous du texte */
+    display: inline-block !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 1.125rem 2.5rem !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    border-radius: 0.25rem !important;
+    margin-top: 2.5rem !important;
+    position: sticky;
+}
